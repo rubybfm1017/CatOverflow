@@ -1,5 +1,62 @@
 {
   "name": "CatOverflow",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "lodash": "^4.17.15",
+    "node-loader": "^0.6.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-mock-router": "^1.0.15",
+    "react-redux": "^5.1.2",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.41.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^25.0.0",
+    "babel-loader": "^8.0.6",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^25.0.0",
+    "jest-cli": "^25.0.0",
+    "jest-enzyme": "^7.1.2",
+    "react-test-renderer": "^16.12.0",
+    "redux-mock-store": "^1.5.4",
+    "webpack-cli": "^3.3.10"
+  },
+  "description": "Qi Zhu's full stack project on App Academy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:watch": "jest --verbose --watchAll",
+    "build": "webpack",
+    "build:watch": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubybfm1017/CatOverflow.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "assessment"
+  ],
+  "author": "Qi Zhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubybfm1017/CatOverflow/issues"
+  },
+  "homepage": "https://github.com/rubybfm1017/CatOverflow#readme"
 }
