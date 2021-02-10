@@ -42,7 +42,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:watch": "jest --verbose --watchAll",
     "build": "webpack",
-    "build:watch": "webpack --watch --mode=development"
+    "build:watch": "webpack --watch --mode=development",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -58,5 +59,10 @@
   "bugs": {
     "url": "https://github.com/rubybfm1017/CatOverflow/issues"
   },
-  "homepage": "https://github.com/rubybfm1017/CatOverflow#readme"
+  "homepage": "https://github.com/rubybfm1017/CatOverflow#readme",
+
+  "engines": {
+    "node": "15.0.1",
+    "npm": "7.0.3"
+  }
 }

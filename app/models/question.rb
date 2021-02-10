@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-    validates :name, :body, presence: true
+    validates :title, :body, presence: true
     
     belongs_to :user
 
