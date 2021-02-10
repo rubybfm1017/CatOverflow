@@ -1,2 +1,2 @@
-class VotesController < ApplicationController
+class Api::VotesController < ApplicationController
 end

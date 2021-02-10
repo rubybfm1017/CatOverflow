@@ -1,7 +1,10 @@
-class UsersController < ApplicationController
-    def new
-        @user = User.new
-        render :new
+class Api::UsersController < ApplicationController
+
+    skip_before_action :verify_authenticity_token
+
+    def index
+        @users = User.all
+        render 'api/users/index'
     end
 
     def create
@@ -9,10 +12,9 @@ class UsersController < ApplicationController
 
         if @user.save
             sign_in!(@user)
-            redirect_to users_url
+            render 'api/users/show'
         else
-            flash.now[:errors] = @user.errors.full_messages
-            render :new
+            render json: @user.errors.full_messages, status: 401
         end
     end
 

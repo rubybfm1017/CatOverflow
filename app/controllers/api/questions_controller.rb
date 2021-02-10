@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Api::QuestionsController < ApplicationController
     def create
         @question = Question.create(question_params)
         if @question.save

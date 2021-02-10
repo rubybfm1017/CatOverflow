@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Api::AnswersController < ApplicationController
 
     before_action :require_signed_in!
 

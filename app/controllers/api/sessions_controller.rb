@@ -1,10 +1,6 @@
-class SessionsController < ApplicationController
+class Api::SessionsController < ApplicationController
 
     before_action :require_signed_in!, only:[:destroy]
-
-    def new
-        render :new
-    end
 
     def create
         @user = User.find_by_credentials(
@@ -14,16 +10,21 @@ class SessionsController < ApplicationController
 
         if @user
             sign_in!(@user)
-            redirect_to users_url
+            render 'api/users/show'
         else
-            flash.now[:errors] = ['Invalid username or password']
-            render :new
+            render json: ['Invalid signin information'], status: 401
         end
     end
 
     def destroy
-        sign_out!
-        redirect_to new_session_url
+        @user = current_user
+
+        if @user
+            sign_out!
+            render 'api/users/show'
+        else
+            render json: ['Invalid Signout'], status: 404
+        end
     end
 
 end
