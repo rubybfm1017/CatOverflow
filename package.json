@@ -2,6 +2,10 @@
   "name": "CatOverflow",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
     "jquery": "^3.1.1",
     "lodash": "^4.17.15",
     "node-loader": "^0.6.0",
@@ -12,24 +16,19 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "webpack": "^4.41.5"
+    "webpack": "^4.41.5",
+    "webpack-cli": "^4.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^25.0.0",
-    "babel-loader": "^8.0.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^25.0.0",
     "jest-cli": "^25.0.0",
     "jest-enzyme": "^7.1.2",
     "react-test-renderer": "^16.12.0",
-    "redux-mock-store": "^1.5.4",
-    "webpack-cli": "^3.3.10"
+    "redux-mock-store": "^1.5.4"
   },
   "description": "Qi Zhu's full stack project on App Academy",
   "version": "1.0.0",
