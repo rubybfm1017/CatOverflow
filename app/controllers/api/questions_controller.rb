@@ -1,4 +1,7 @@
 class Api::QuestionsController < ApplicationController
+
+    before_action  :require_signed_in!, only: :create
+
     def create
         @question = Question.create(question_params)
         if @question.save
