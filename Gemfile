@@ -36,8 +36,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'jquery-rails'
 
-gem 'annotate'
-
 group :development, :test do
   
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -53,6 +51,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'annotate'
 end
 
 group :test do
