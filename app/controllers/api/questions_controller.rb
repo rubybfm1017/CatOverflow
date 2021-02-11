@@ -1,39 +1,41 @@
 class Api::QuestionsController < ApplicationController
 
-    before_action  :require_signed_in!, only: :create
+    skip_before_action :verify_authenticity_token
+    before_action  :require_signed_in!, only: [:create, :update, :destroy]
 
     def create
         @question = Question.create(question_params)
+        @question.user_id = current_user.id 
         if @question.save
-            redirect_to questions_url   
+            render 'api/questions/show'  
         else
-            render json: @question.errors.full_messages, status: 422
+            render json: @question.errors.full_messages, status: 401
         end
     end
 
     def index
         @questions = Question.all
-        render :index 
+        render 'api/questions/index' 
     end
 
     def show
         @question = Question.find(params[:id])
-        render :show
+        render 'api/questions/show'
     end
 
     def update
         @question = Question.find(params[:id])
         if @question.update(question_params)
-            redirect_to questions_url
+            render 'api/questins/show'
         else
-            render json: @question.errors.full_messages, status: 422
+            render json: @question.errors.full_messages, status: 401
         end
     end
 
     def destroy
         @questions = Question.find(params[:id])
         @question.destroy
-        redirect_to questions_url
+        render 'api/questions/index'
     end
 
     private
