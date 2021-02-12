@@ -1,18 +1,155 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+// /*
+//  * This is a manifest file that'll be compiled into application.css, which will include all the files
+//  * listed below.
+//  *
+//  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+//  * vendor/assets/stylesheets directory can be referenced here using a relative path.
+//  *
+//  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+//  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+//  * files in this directory. Styles in this file should be added after the last require_* statement.
+//  * It is generally better to create a new file per style scope.
+//  *
+//  *= require_tree .
+//  *= require_self
+//  */
+
+
+$background-color: #f3f2eb;
+$background-color-light: #efefef;
+$text-default: #3f3124;
+$text-default-secondary: #848484;
+$color-theme: #ffa11a;
+$color-primary: #0e98db;
+$color-secondary: #89eaea;
+$color-success: #4faa35;
+$color-warning: #f6ba13;
+$color-danger: #ef5440;
+$color-muted: #cccccc;
+$border-color: #a3a3a3;
+$default-border-radius: 0.25rem;
+$small-border-radius: 0.1rem;
+$background-highlight-color: #e2edf1;
+$default-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+
+$themes: (
+        primary: $color-primary,
+        secondary: $color-secondary,
+        success: $color-success,
+        warning: $color-warning,
+        danger: $color-danger,
+        muted: $color-muted
+);
+
+body {
+  font-family: Papyrus, "Helvetica Neue", Helvetica, sans-serif;
+  color: $text-default;
+  font-size: 18px;
+  margin: 0;
+  background: $background-color;
+}
+
+
+
+@mixin link-color($color) {
+  color: darken($color, 10%);
+  &:hover {
+    color: $color;
+  }
+  &:active {
+    color: darken($color, 5%);
+  }
+}
+
+.full-height {
+  height: 100%;
+}
+
+.main {
+  max-width: 768px;
+  min-height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+  align-items: baseline;
+  padding: 5rem 2rem 2rem 2rem;
+
+  @media (max-width: 480px) {
+    padding: 5rem 0 0 0;
+  }
+
+
+  @mixin link-color($color) {
+    color: darken($color, 10%);
+    &:hover {
+      color: $color;
+    }
+    &:active {
+      color: darken($color, 5%);
+    }
+  }
+}
+
+
+@mixin input-theme($color) {
+  border: 1px solid $color;
+  &:focus {
+    border-color: $color;
+    box-shadow: 0 0 0.25rem rgba($color, 0.5);
+    outline: $color;
+  }
+}
+
+@mixin button-theme($button-color) {
+  background-color: $button-color;
+  color: white;
+  &:focus {
+    box-shadow: 0 0 0.25rem rgba($button-color, 0.5);
+  }
+  &:hover, &:focus {
+    background-color: darken($button-color, 5%);
+  }
+  &:active {
+    color: white;
+    background-color: lighten($button-color, 3%);
+  }
+  &:disabled {
+    background-color: lighten(desaturate($button-color, 50%), 10%);
+    cursor: not-allowed;
+  }
+}
+
+.button {
+  outline: none;
+  border: none;
+  border-radius: $default-border-radius;
+  padding: 0.75em 1.25em;
+  line-height: 1;
+  cursor: pointer;
+  color: $text-default-secondary;
+  background-color: $background-color;
+  margin: 0.25em;
+  text-decoration: none;
+  font-weight: normal;
+  white-space: nowrap;
+
+  &:active {
+    text-decoration: none;
+  }
+
+  @each $theme, $color in $themes {
+    &-#{$theme} {
+      @include button-theme($color);
+    }
+  }
+
+  &-login {
+    @include button-theme($background-highlight-color);
+    color: #0c465a;
+    border: 1px solid #257089;
+  }
+}
+
 
 .home {
   padding-top: 2rem;
@@ -30,7 +167,7 @@
       background-image: url(https://npe-app.sfo2.cdn.digitaloceanspaces.com/illo-hero-small.svg);
     }
 
-  .hero-content {
+    .hero-content {
       padding: 1em;
       max-width: 768px;
       margin: auto;
@@ -40,7 +177,7 @@
       align-items: center;
       text-align: center;
 
-       & > h1 {
+      & > h1 {
         font-size: 3rem;
       }
 
@@ -54,7 +191,11 @@
         padding: 1em 2em;
       }
 
-      .about {
+
+    }
+  }
+
+  .about {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,14 +212,13 @@
       .about-item {
         font-size: 1rem;
         flex: 1 1 32ch;
+        box-shadow: $default-box-shadow;
         padding: 1.5em;
         margin: 1rem;
         display: flex;
         flex-direction: column;
         align-items: center;
       }
-    }
-     }
     }
   }
 }
@@ -97,6 +237,7 @@
     }
     a {
       text-decoration: none;
+      @include link-color(white);
     }
   }
 }
