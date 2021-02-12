@@ -18,7 +18,10 @@ const UserReducer = (oldState = initialState, action) => {
 
     switch (action.type) {
         case SIGNIN_USER:
-            return Object.assign({}, oldState, { current_user: action.user });
+            return Object.assign({}, oldState, { 
+                current_user: action.user,
+                signedIn: true
+            });
 
         case SIGNUP_USER:
             return Object.assign({}, oldState, { 
@@ -27,8 +30,7 @@ const UserReducer = (oldState = initialState, action) => {
             });
 
         case SIGNOUT_USER:
-            delete nextState['current_user']
-            return nextState
+            return initialState
 
         default:
             return oldState
