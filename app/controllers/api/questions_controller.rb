@@ -6,7 +6,7 @@ class Api::QuestionsController < ApplicationController
     def create
         @question = Question.create(question_params)
         @question.user_id = current_user.id 
-        if @question.save
+        if @question.save 
             render 'api/questions/show'  
         else
             render json: @question.errors.full_messages, status: 401
