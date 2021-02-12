@@ -51,6 +51,7 @@ body {
 
 
 
+
 @mixin link-color($color) {
   color: darken($color, 10%);
   &:hover {
@@ -274,4 +275,48 @@ body {
 
 * {
   box-sizing: border-box;
+}
+  
+
+.main-nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-top: 0.25rem solid $color-theme;
+  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3);
+  background: #fafafa;
+  height: 3rem;
+
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+
+    .main-nav__left {
+      display: flex;
+      height: 100%;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      & > li {
+        height: 100%;
+        display: flex;
+        a {
+          padding: 0 1em;
+          display: block;
+          text-decoration: none;
+          &:hover {
+            background: #efefef;
+          }
+          &.active {
+            background: #efefef;
+          }
+        }
+      }
+    }
+  }
 }
