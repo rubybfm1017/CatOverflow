@@ -9,7 +9,6 @@ import SignInFormContainer from "./users/signin_form_container";
 
 const App = () => (
   <div>
-    <h1>React 1</h1>
     <Switch>
       <Route exact path="/" component={HomePageContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
