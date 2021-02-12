@@ -8,25 +8,21 @@ const initialState = {
     current_user: {
         username: '',
         password: ''
-    },
-    signedIn: false
+    }
 }
 
 const UserReducer = (oldState = initialState, action) => {
     Object.freeze(oldState)
-    let nextState = Object.assign({}, oldState)
-
+    
     switch (action.type) {
         case SIGNIN_USER:
             return Object.assign({}, oldState, { 
-                current_user: action.user,
-                signedIn: true
+                current_user: action.user
             });
 
         case SIGNUP_USER:
             return Object.assign({}, oldState, { 
-                current_user: action.user,
-                signedIn: true
+                current_user: action.user
             });
 
         case SIGNOUT_USER:

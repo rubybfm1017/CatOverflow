@@ -13,7 +13,7 @@ export const signinUser = (user) => ({
 })
 
 export const signoutUser = () => ({
-    type:SIGNIN_USER
+    type:SIGNOUT_USER
 })
 
 export const signupUser = (user) => ({
@@ -34,5 +34,5 @@ export const signin = (user) => dispatch =>{
 
 export const signout = () => dispatch =>{
     return user_api_util.destroySession()
-        .then(() => dispatch(signinUser()))
+        .then(() => dispatch(signoutUser()))
 }
