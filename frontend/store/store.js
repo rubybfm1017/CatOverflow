@@ -3,8 +3,14 @@ import RootReducer from '../reducers/root_reducer';
 import thunk from 'redux-thunk';
 
 
-const configureStore = (preloadedState = {}) => (
-  createStore(RootReducer, preloadedState, applyMiddleware(thunk))
-);
+const configureStore = (preloadedState = {}) => {
+  const persistedState = JSON.parse(localStorage.getItem("persistedState"))
+  preloadedState = persistedState ? persistedState : preloadedState
+  const store = createStore(RootReducer, preloadedState, applyMiddleware(thunk))
+  store.subscribe(() => {
+    localStorage.setItem("persistedState", JSON.stringify(store.getState()))
+  })
+  return store
+}
 
-export default configureStore;
+export default configureStore
