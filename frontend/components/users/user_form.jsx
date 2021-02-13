@@ -2,10 +2,11 @@ import React from 'react';
 
 class UserForm extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = this.props.user;
+    super(props)
+    this.state = this.props.user
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.demoSignin = this.demoSignin.bind(this)
   }
 
   handleSubmit(e) {
@@ -16,6 +17,16 @@ class UserForm extends React.Component {
   update(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
+
+  demoSignin(event) {
+    event.preventDefault()
+
+    this.props.submitForm({
+        username: 'demo',
+        password: '123456'
+    })
+  }
+
 
   render() {
     return (
@@ -45,7 +56,8 @@ class UserForm extends React.Component {
               onChange={this.update('password')}
             />
           </label>
-          <button type='submit' value={this.props.formType} />
+          <button onClick={this.demoSignin}>Demo User</button>
+          <button type='submit' value={this.props.formType}>OK</button>
         </form>
       </div>
     );
