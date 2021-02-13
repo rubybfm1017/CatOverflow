@@ -4,7 +4,8 @@ import UserForm from './user_form'
 
 const mapStateToProps = (state) => ({
     user: state.users.current_user,
-    formType: 'User Sign In'
+    formType: 'User Sign In',
+    error: state.errors.error
 })
 
 const mapDispatchToProps = dispatch => ({

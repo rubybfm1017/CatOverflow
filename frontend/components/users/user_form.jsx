@@ -22,6 +22,13 @@ class UserForm extends React.Component {
       <div>
         <h3>{this.props.formType}</h3>
         <form onSubmit={this.handleSubmit}>
+          {this.props.error != null ? (
+                <div>
+                    <p className='errorMsg'>
+                        {this.props.error}
+                    </p>
+                </div> 
+            ) : null }
           <label>
             Username
             <input
