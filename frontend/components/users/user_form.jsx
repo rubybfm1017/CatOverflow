@@ -33,8 +33,9 @@ class UserForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login">
         <h3>{this.props.formType}</h3>
+        <div className="login__form">
         <form onSubmit={this.handleSubmit}>
           {this.props.error != null ? (
                 <div>
@@ -59,9 +60,16 @@ class UserForm extends React.Component {
               onChange={this.update('password')}
             />
           </label>
-          <button onClick={this.demoSignin}>Demo User</button>
+          <div className="button-area">
+            {this.props.formType != 'User Sign Up' ? (
+              <button onClick={this.demoSignin}>Demo User</button>
+              ) : null}
+            
           <button type='submit' value={this.props.formType}>OK</button>
+
+          </div>
         </form>
+        </div>
       </div>
     );
   }
