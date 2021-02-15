@@ -36,17 +36,18 @@ class Navbar extends React.Component {
                         </input>
                     </div>
                     {!this.props.signedIn ? (
-                            <div className="nav-right">
-                                <div className="nav-right__loginbtn">
+                            <div className="nav-right" style={{display: 'inline', marginInline: '50px' }}>
+                                <div className="button nav-right__loginbtn">
                                     <Link to="signin" >Sign in</Link>
                                 </div>
-                                <div className="nav-right__signupbtn">
+                                <div className="button nav-right__signupbtn">
                                     <Link to="signup" >Sign up</Link>
                                 </div>   
                             </div>
                         ) : (
                             <div className="nav-right">
-                                <button onClick={this.props.signout}>Sign out</button>
+                                <button className="nav-right__logoutbtn" style={{marginInline: '50px'}} onClick={this.props.signout}>Sign out</button>
+                                <span>{this.props.currentUser.username}</span>
                             </div>
                         )
                     }
