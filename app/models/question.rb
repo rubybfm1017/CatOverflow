@@ -5,5 +5,6 @@ class Question < ApplicationRecord
 
     has_many :answers
 
+    has_one_attached :photo
 
 end
