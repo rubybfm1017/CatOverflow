@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 class UserForm extends React.Component {
   constructor(props) {
@@ -37,13 +38,6 @@ class UserForm extends React.Component {
         <h3>{this.props.formType}</h3>
         <div className="login__form">
         <form onSubmit={this.handleSubmit}>
-          {this.props.error != null ? (
-                <div>
-                    <p className='errorMsg'>
-                        {this.props.error}
-                    </p>
-                </div> 
-            ) : null }
           <label>
             Username
             <input
@@ -62,14 +56,30 @@ class UserForm extends React.Component {
           </label>
           <div className="button-area">
             {this.props.formType != 'User Sign Up' ? (
-              <button onClick={this.demoSignin}>Demo User</button>
+                <button onClick={this.demoSignin}>Demo User</button>
               ) : null}
             
           <button type='submit' value={this.props.formType}>OK</button>
 
           </div>
         </form>
+        <div style={{marginLeft: '25px'}}>
+          {this.props.formType != 'User Sign Up' ? (
+              <p className="session-help">Don't have an account? <Link className="primary" to="/signup">Sign up</Link></p>
+            ) : (
+              <p className="session-help">Already have an account? <Link className="primary" to="/signin">Sign in</Link></p>
+            )}
+          </div>
         </div>
+        {this.props.error != null ? (
+          <div style={{color: 'red', marginTop: '10px'}}>
+            <ul>
+              {this.props.error.map((err, i) => (
+                  <li key={`error-${i}`}>{err}</li>
+              ))}
+            </ul>
+          </div>  
+        ) : null }
       </div>
     );
   }
