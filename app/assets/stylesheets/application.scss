@@ -124,11 +124,6 @@ button:hover {
     }
   }
 
-  &-login {
-    @include button-theme($background-highlight-color);
-    color: #0c465a;
-    border: 1px solid #257089;
-  }
 }
 
 

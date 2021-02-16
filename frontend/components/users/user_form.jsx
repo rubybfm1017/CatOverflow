@@ -37,32 +37,33 @@ class UserForm extends React.Component {
       <div className="login">
         <h3>{this.props.formType}</h3>
         <div className="login__form">
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Username
-            <input
-              type='text'
-              value={this.state.username}
-              onChange={this.update('username')}
-            />
-          </label>
-          <label>
-            password
-             <input
-              type='text'
-              value={this.state.password}
-              onChange={this.update('password')}
-            />
-          </label>
-          <div className="button-area">
-            {this.props.formType != 'User Sign Up' ? (
-                <button onClick={this.demoSignin}>Demo User</button>
-              ) : null}
-            
-          <button type='submit' value={this.props.formType}>OK</button>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Username
+              <input
+                type='text'
+                value={this.state.username}
+                onChange={this.update('username')}
+              />
+            </label>
+            <label>
+              password
+              <input
+                type='text'
+                value={this.state.password}
+                onChange={this.update('password')}
+              />
+            </label>
+            <div className="button-area">
+              {this.props.formType != 'User Sign Up' ? (
+                  <button onClick={this.demoSignin}>Demo User</button>
+                ) : null}
+              {this.props.formType != 'User Sign Up' ? (
+                  <button className="login__form__btn" type='submit' value={this.props.formType}>Sign in</button>
+                ) : <button className="login__form__btn" type='submit' value={this.props.formType}>Sign up</button>}
 
-          </div>
-        </form>
+            </div>
+          </form>
         <div style={{marginLeft: '25px'}}>
           {this.props.formType != 'User Sign Up' ? (
               <p className="session-help">Don't have an account? <Link className="primary" to="/signup">Sign up</Link></p>
