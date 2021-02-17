@@ -47,16 +47,20 @@ class UserForm extends React.Component {
               />
             </label>
             <label>
-              password
+              Password
               <input
                 type='text'
                 value={this.state.password}
                 onChange={this.update('password')}
               />
             </label>
-            <div className="button-area">
+            <div className="button-area" style={{width: '100%'}}>
               {this.props.formType != 'User Sign Up' ? (
-                  <button onClick={this.demoSignin}>Demo User</button>
+                  <button className="login__form__btn" style={{
+                    backgroundColor: '#cccccc',
+                    color: 'white',
+                    marginBottom: '5px'
+                  }} onClick={this.demoSignin}>Demo User</button>
                 ) : null}
               {this.props.formType != 'User Sign Up' ? (
                   <button className="login__form__btn" type='submit' value={this.props.formType}>Sign in</button>

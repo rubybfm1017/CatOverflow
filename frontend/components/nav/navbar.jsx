@@ -46,8 +46,8 @@ class Navbar extends React.Component {
                             </div>
                         ) : (
                             <div className="nav__right">
-                                <button className="nav__right__logoutbtn" style={{marginInline: '50px'}} onClick={this.props.signout}>Sign out</button>
-                                <span>{this.props.currentUser.username}</span>
+                                <div className="nav__right__logoutbtn" style={{marginInline: '50px'}} onClick={this.props.signout}>Sign out</div>
+                                <span style={{marginTop: '5px' }}>{this.props.currentUser.username}</span>
                             </div>
                         )
                     }
