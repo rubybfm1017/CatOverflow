@@ -36,6 +36,7 @@ class UserForm extends React.Component {
     return (
       <div className="login">
         <h3>{this.props.formType}</h3>
+        <Link className="primary" to="/">Homepage</Link>
         <div className="login__form">
           <form onSubmit={this.handleSubmit}>
             <label>
