@@ -1,7 +1,6 @@
 class Api::SessionsController < ApplicationController
 
     skip_before_action :verify_authenticity_token
-    before_action :require_signed_in!, only:[:destroy]
 
     def create
         @user = User.find_by_credentials(
@@ -22,9 +21,7 @@ class Api::SessionsController < ApplicationController
 
         if @user
             sign_out!
-            render 'api/users/show'
-        else
-            render json: ['Invalid Signout'], status: 404
+            render 'api/users/show'            
         end
     end
 
