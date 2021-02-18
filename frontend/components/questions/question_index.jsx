@@ -1,4 +1,5 @@
 import React from 'react';
+import CreateQuestionFormContainer from './create_question_form_container';
 
 class questionIndex extends React.Component {
     
@@ -8,7 +9,17 @@ class questionIndex extends React.Component {
     
     render() { 
         return ( 
-            <div>questions</div>
+            <div>
+                <div>
+                    <h3>All Questions</h3>
+                </div>
+                <div>
+                    {this.props.questions.map((question, i) => (
+                        <li key={`question-${i}`}>{question.title}</li>
+                    ))}
+                </div>
+                <CreateQuestionFormContainer />
+            </div>
          );
     }
 }
