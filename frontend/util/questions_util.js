@@ -20,6 +20,19 @@ export const fetchQuestion = (QuestionId) =>{
     })
 }
 
+export const updateQuestion = (question) => {
+    return $.ajax({
+        url: `api/questions/${question.id}`,
+        method: 'PATCH',
+        data: { question }
+    })
+}
+export const deletePost = (QuestionId) => {
+    return $.ajax({
+        url: `/api/questions/${QuestionId}`,
+        method: 'DELETE'
+    })
+}
 
 
 

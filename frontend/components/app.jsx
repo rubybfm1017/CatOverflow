@@ -6,6 +6,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 import HomePageContainer from "./home/homepage";
 import SignUpFormContainer from "./users/signup_form_container";
 import SignInFormContainer from "./users/signin_form_container";
+import QuestionIndexContainer from './questions/question_index_container';
 
 const App = () => (
   <div>
@@ -13,6 +14,8 @@ const App = () => (
       <Route exact path="/" component={HomePageContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <AuthRoute exact path="/signin" component={SignInFormContainer} />
+      <Route exact path="/questions" component={QuestionIndexContainer} />
+
       <Redirect to="/" />
     </Switch>
   </div>
