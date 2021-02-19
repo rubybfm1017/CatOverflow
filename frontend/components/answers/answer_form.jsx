@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class AnswerForm extends React.Component {
     constructor(props) {
@@ -34,6 +36,8 @@ class AnswerForm extends React.Component {
 
                 <button type='submit' value={this.props.formType} textarea='post your answer'/>
                 </form>
+                <Link className="primary" to="/questions">All questions</Link>
+
             </div>
         )
   }

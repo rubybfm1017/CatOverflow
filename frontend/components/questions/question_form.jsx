@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import NavbarContainer from '../nav/navbar';
 
 class QuestionForm extends React.Component {
     constructor(props) {
@@ -20,8 +22,13 @@ class QuestionForm extends React.Component {
 
     render() { 
         return (
-            <div>
+            <div className="question-form__header">
+                <NavbarContainer/>
+                
                 <h3>{this.props.formType}</h3>
+                <br/>
+                <br/>
+
                 <form onSubmit={this.handleSubmit}>
                 <label>
                     Title
@@ -31,6 +38,8 @@ class QuestionForm extends React.Component {
                     onChange={this.update('title')}
                     />
                 </label>
+                <br/>
+                <br/>
                 <label>
                     Body
                     <textarea
@@ -38,8 +47,14 @@ class QuestionForm extends React.Component {
                     onChange={this.update('body')}
                     />
                 </label>
-                <button type='submit' value={this.props.formType} />
+                <br/>
+                <br/>
+                
+                <button className="question-form__btn" type='submit' value={this.props.formType} >
+                    Ask A Question
+                </button>
                 </form>
+                <Link className="primary" to="/questions">All questions</Link>
             </div>
         )
   }
