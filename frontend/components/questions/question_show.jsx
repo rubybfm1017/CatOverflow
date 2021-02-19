@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class QuestionShow extends React.Component {
   componentDidMount() {
-    this.props.fetchQuestion(this.props.match.params.QuestionId);
+    this.props.fetchQuestion(this.props.match.params.questionId);
   }
 
   render() {

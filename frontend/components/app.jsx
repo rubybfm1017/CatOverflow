@@ -8,6 +8,7 @@ import SignUpFormContainer from "./users/signup_form_container";
 import SignInFormContainer from "./users/signin_form_container";
 import QuestionIndexContainer from './questions/question_index_container';
 import CreateQuestionFormContainer from "./questions/create_question_form_container";
+import QuestionShowContainer from './questions/question_show_container';
 
 
 const App = () => (
@@ -22,6 +23,7 @@ const App = () => (
           path="/questions/ask"
           component={CreateQuestionFormContainer}
       />
+      <ProtectedRoute exact path="/questions/:questionId" component={QuestionShowContainer} />
 
       <Redirect to="/" />
     </Switch>
