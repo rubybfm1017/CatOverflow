@@ -6,7 +6,8 @@ const mapStateToProps = (state) => ({
     answer:{
         body: ''
     },
-    formType: 'Answer Question'
+    formType: 'Answer Question',
+    currentUser: state.users.current_user
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -19,19 +19,21 @@ class QuestionShow extends React.Component {
   
     //debugger
     return (
-      <div className="questions-show-grid">
+      <div>
         <NavbarContainer/>
-        <br/>
-         <div className="question-show-body__question">
+        <div className="questions-show-grid">
+          <br/>
+          <div className="question-show-body__question">
             <h1>{question.title}</h1>
             <p>{question.body}</p>
+          </div>
+          
+          <div className="answer-component-div">
+            < AnswerIndexContainer answers={question.answers}/>
+            < AnswerFormContainer questionId={question.id}/>
+          </div>
+          <Link to="/" />
         </div>
-        
-        <div className="answer-component-div">
-          < AnswerIndexContainer answers={question.answers}/>
-          < AnswerFormContainer questionId={question.id}/>
-        </div>
-        <Link to="/" />
       </div>
     );
   }

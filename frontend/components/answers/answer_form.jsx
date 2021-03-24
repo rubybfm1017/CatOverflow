@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 
 class AnswerForm extends React.Component {
@@ -20,27 +21,43 @@ class AnswerForm extends React.Component {
         return e => this.setState({ [field]: e.currentTarget.value })
     }
 
-    render() { 
+    loggedIn() {
         return (
             <div>
-                <h3>{this.props.formType}</h3>
+                <h4 className="your-answer-title">Your Answer</h4>
                 <form onSubmit={this.handleSubmit}>
-                
-                <label>
-                    Body
-                    <textarea
-                    value={this.state.body}
-                    onChange={this.update('body')}
-                    />
-                </label>
-
-                <button type='submit' value={this.props.formType} textarea='post your answer'/>
+                <textarea className="new-answer-textarea"
+                    cols="30"
+                    rows="8"
+                    onChange={this.update("body")} />
+                <Button variant="success" type="submit">Post Your Answer</Button>
                 </form>
-                <Link className="primary" to="/questions">All questions</Link>
-
             </div>
+        );
+    }
+
+    notLoggedIn() {
+        return (
+            <div>
+                <h4 className="your-answer-title">Your Answer</h4>
+                <Link to="/login">
+                <Button variant="primary">Please Log In to Answer</Button>
+                </Link>
+            </div>
+        );
+    }
+
+    render() { 
+        const { currentUser } = this.props; 
+
+        return (
+            <section className="new-answer-component">
+            {
+                currentUser ? this.loggedIn() : this.notLoggedIn()
+            }
+            </section>
         )
-  }
+    }
     
 }
  
