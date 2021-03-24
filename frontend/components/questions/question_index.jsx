@@ -19,11 +19,7 @@ class questionIndex extends React.Component {
             <div className="questions-index-grid" >
                 <NavbarContainer />
                 <br/>
-                <Link className="primary" to="/">Homepage</Link>
-                <div className="questions-index__top">
-                    <h3>All Questions</h3>
-                </div>
-                <div className="questions-index__info">
+                <div id="questions-list" className="questions-index__info">
                     {this.props.questions.map((question) => (
                         <QuestionIndexItem
                             question={question}
@@ -31,13 +27,13 @@ class questionIndex extends React.Component {
                         />
                     ))}
                 </div>
-                    <nav>
-                        <Link to="/questions/ask">
-                            <button className="questions-index__top__btn" id="button" type="button">
-                                Ask Question
-                            </button>
-                        </Link>
-                    </nav>
+                <div id="question-list-nav">
+                    <Link to="/questions/ask">
+                        <button className="questions-index__top__btn" id="button" type="button">
+                            Ask Question
+                        </button>
+                    </Link>
+                </div>
             </div>
          );
     }

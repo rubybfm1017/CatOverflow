@@ -31,5 +31,6 @@ bundle.js
 bundle.js*
 bundle.js.map
 
+vendor
 
 
