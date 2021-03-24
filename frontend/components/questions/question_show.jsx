@@ -27,7 +27,7 @@ class QuestionShow extends React.Component {
             <p>{question.body}</p>
         </div>
         
-        <div className="question-show__answers">
+        <div className="answer-component-div">
           < AnswerIndexContainer answers={question.answers}/>
           < AnswerFormContainer questionId={question.id}/>
         </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import ListGroup from 'react-bootstrap/ListGroup';
+import AnswerIndexItem from './answer_index_item';
 
 class AnswerIndex extends React.Component {
     constructor(props) {
@@ -7,20 +9,29 @@ class AnswerIndex extends React.Component {
     
     render() { 
         //debugger
-        return ( 
-            <div>
-                <div>
-                    <h3>All Answers</h3>
-                </div>
-                <div>
-                    <ul>
-                        {this.props.answers.map((answer) => (
-                            <li key={answer.id}>{answer.body}</li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-         );
+        const { answers,
+            deleteAnswer, 
+            updateAnswer,
+            currentUser,
+            questionId
+          } = this.props;
+
+        return (
+            <section>
+                <h4 className="answer-title">Answers</h4>
+                <ListGroup variant="flush">
+                {answers.map((answer) => (
+                    <AnswerIndexItem key={answer.id}
+                                answer={answer}
+                                currentUser={currentUser}
+                                deleteAnswer={deleteAnswer}
+                                updateAnswer={updateAnswer}
+                                questionId={questionId}
+                    />
+                ))}
+                </ListGroup>
+            </section>
+        );
     }
 }
  
