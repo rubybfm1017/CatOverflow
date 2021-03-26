@@ -11,9 +11,9 @@ class Api::VotesController < ApplicationController
             return
         end
         if @vote.save
-            @answer = Answer.find(@vote.answer_id)
+            @question = Question.find(params[:question_id])
     
-            render 'api/answers/show'
+            render 'api/questions/show'
         else
             render json: @vote.errors.full_messages, status: 501
         end
@@ -28,7 +28,7 @@ class Api::VotesController < ApplicationController
             end
         end
 
-        @answer = Answer.find(params[:answer_id])
-        render 'api/answers/show'
+        @question = Question.find(params[:question_id])
+        render 'api/questions/show'
     end
 end

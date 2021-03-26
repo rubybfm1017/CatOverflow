@@ -3,6 +3,11 @@ import { RECEIVE_ALL_QUESTIONS,
          REMOVE_QUESTION
 } from '../actions/questions_actions';
 
+import {
+    RECEIVE_VOTE,
+    REMOVE_VOTE
+} from '../actions/votes_actions';
+
 
 const QuestionsReducer = (oldState = {}, action) => {
     Object.freeze(oldState)
@@ -11,6 +16,12 @@ const QuestionsReducer = (oldState = {}, action) => {
             return Object.assign({}, oldState, action.questions)
  
         case RECEIVE_QUESTION:
+            return Object.assign({}, oldState, { [action.question.id]: action.question })
+
+        case RECEIVE_VOTE:
+            return Object.assign({}, oldState, { [action.question.id]: action.question })
+
+        case REMOVE_VOTE:
             return Object.assign({}, oldState, { [action.question.id]: action.question })
             
         case REMOVE_QUESTION:
