@@ -9,11 +9,13 @@ import {
 
 const AnswersReducer = (oldState = {} , action) => {
     Object.freeze(oldState)
-
     switch (action.type) {
-        case RECEIVE_ANSWER, RECEIVE_VOTE, REMOVE_VOTE:
-            return Object.assign({}, oldState, { [action.answer.question_id]: action.answer })
-
+        case RECEIVE_ANSWER:
+            return Object.assign({}, oldState, { [action.answer.id]: action.answer })
+        case RECEIVE_VOTE:
+            return Object.assign({}, oldState, { [action.answer.id]: action.answer })
+        case REMOVE_VOTE:
+            return Object.assign({}, oldState, { [action.answer.id]: action.answer })
         default:
             return oldState
     }

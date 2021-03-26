@@ -11,7 +11,7 @@ class QuestionShow extends React.Component {
   }
 
   render() {
-    const { question, newAnswer } = this.props;
+    const { question } = this.props;
   
     //debugger
     return (
