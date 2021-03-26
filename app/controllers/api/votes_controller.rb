@@ -8,6 +8,7 @@ class Api::VotesController < ApplicationController
         @vote.answer_id = params[:answer_id]
         if Vote.exists?(user_id: @vote.user_id, answer_id: @vote.answer_id)
             render json: ['User already voted'], status: 200
+            return
         end
         if @vote.save
             @answer = Answer.find(@vote.answer_id)

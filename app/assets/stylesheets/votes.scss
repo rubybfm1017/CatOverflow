@@ -1,3 +1,61 @@
 // Place all the styles related to the votes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#up-arrow-outline {
+  font-size: 50px;
+  color: lightgray;
+}
+
+#up-arrow-outline:hover {
+  cursor: pointer;
+}
+
+
+#down-arrow-outline {
+  font-size: 50px;
+  color: lightgray;
+}
+
+#down-arrow-outline:hover {
+  cursor: pointer;
+}
+
+#up-arrow-outline-answer {
+  font-size: 50px;
+  color: lightgray;
+}
+
+#up-arrow-outline-answer:hover {
+  cursor: pointer;
+}
+
+#down-arrow-outline-answer {
+  font-size: 50px;
+  color: lightgray;
+}
+
+#down-arrow-outline-answer:hover {
+  cursor: pointer;
+}
+
+.voting-score {
+  font-size: 25px;
+  margin-bottom: 2px;
+}
+
+.total-user-votes {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.answer-voting {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.votes-desc-flex {
+  display: flex;
+  margin: 10px 2px 10px 2px;
+} 
+

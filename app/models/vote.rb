@@ -1,6 +1,6 @@
 class Vote < ApplicationRecord
-    validates :username, presence:true
-    validates :type, inclusion: {in: [true, false]}
+    validates :user_id, presence:true
+    validates :answer_id, presence:true
 
     belongs_to :answer 
 

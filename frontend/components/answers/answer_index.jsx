@@ -13,7 +13,9 @@ class AnswerIndex extends React.Component {
             deleteAnswer, 
             updateAnswer,
             currentUser,
-            questionId
+            questionId,
+            createVote,
+            deleteVote,
           } = this.props;
 
         return (
@@ -27,6 +29,8 @@ class AnswerIndex extends React.Component {
                                 deleteAnswer={deleteAnswer}
                                 updateAnswer={updateAnswer}
                                 questionId={questionId}
+                                createVote={createVote}
+                                deleteVote={deleteVote}
                     />
                 ))}
                 </ListGroup>

@@ -29,7 +29,7 @@ class QuestionShow extends React.Component {
           </div>
           
           <div className="answer-component-div">
-            < AnswerIndexContainer answers={question.answers}/>
+            < AnswerIndexContainer answers={question.answers} questionId={question.id}/>
             < AnswerFormContainer questionId={question.id}/>
           </div>
           <Link to="/" />
