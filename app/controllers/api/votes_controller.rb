@@ -10,7 +10,9 @@ class Api::VotesController < ApplicationController
             render json: ['User already voted'], status: 200
         end
         if @vote.save
-            render json: ['Vote success'], status: 200
+            @answer = Answer.find(@vote.answer_id)
+    
+            render 'api/answers/show'
         else
             render json: @vote.errors.full_messages, status: 501
         end
@@ -23,6 +25,8 @@ class Api::VotesController < ApplicationController
                 render json: @vote.errors.full_messages, status: 501
             end
         end
-        render json: ['Vote deleted'], status: 200
+
+        @answer = Answer.find(@vote.answer_id)
+        render 'api/answers/show'
     end
 end
