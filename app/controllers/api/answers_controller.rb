@@ -1,7 +1,7 @@
 class Api::AnswersController < ApplicationController
 
     skip_before_action :verify_authenticity_token
-    before_action :require_signed_in!
+    before_action :require_signed_in!, only: [:create]
 
     def create
         @answer = Answer.new(answer_params)

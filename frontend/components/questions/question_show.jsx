@@ -10,10 +10,6 @@ class QuestionShow extends React.Component {
     this.props.fetchQuestion(this.props.match.params.questionId);
   }
 
-  componentDidUpdate() {
-    this.props.fetchQuestion(this.props.match.params.questionId);
-  }
-
   render() {
     const { question, newAnswer } = this.props;
   
