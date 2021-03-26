@@ -21,13 +21,14 @@ class Api::VotesController < ApplicationController
 
     def destroy
         @vote = Vote.find_by(user_id: current_user.id, answer_id: params[:answer_id])
-        if @vote
+        if @vote != nil
             if !@vote.destroy
                 render json: @vote.errors.full_messages, status: 501
+                return
             end
         end
 
-        @answer = Answer.find(@vote.answer_id)
+        @answer = Answer.find(params[:answer_id])
         render 'api/answers/show'
     end
 end
