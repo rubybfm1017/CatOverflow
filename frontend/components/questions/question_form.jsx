@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import NavbarContainer from '../nav/navbar';
 
 class QuestionForm extends React.Component {
@@ -13,7 +13,10 @@ class QuestionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createQuestion(this.state)
+        const { history } = this.props;
+        this.props.createQuestion(this.state).then(() => {
+            history.push('/questions')
+        });
     }
 
     update(field) {
@@ -61,4 +64,4 @@ class QuestionForm extends React.Component {
     
 }
  
-export default QuestionForm
+export default withRouter(QuestionForm);
