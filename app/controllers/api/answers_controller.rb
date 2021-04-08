@@ -14,7 +14,8 @@ class Api::AnswersController < ApplicationController
         end
 
         if @answer.save
-            render 'api/answers/show'
+            @question = Question.find_by_id(params[:question_id])
+            render 'api/questions/show'
         else
             render json: @answer.errors.full_messages, status: 401
         end
