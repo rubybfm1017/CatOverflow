@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 const QuestionIndexItem = props => {
   const { question } = props;
 
-  let numAnswers = question.answers.length
+  let numAnswers = 0
+  
+  if (question && question.answers) {
+    numAnswers = question.answers.length
+  }
 
   return (
     <>
