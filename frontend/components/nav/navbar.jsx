@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import { connect } from 'react-redux'; 
 import { signout } from '../../actions/user_actions';
@@ -22,6 +22,7 @@ class Navbar extends React.Component {
     handleSubmit(e) {
 		e.preventDefault();
 		this.props.setSearchTerm(this.state.search);
+        this.props.history.push('/questions');
 	}
     
     render() {
@@ -79,4 +80,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Navbar));
