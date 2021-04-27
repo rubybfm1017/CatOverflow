@@ -13,6 +13,10 @@ class questionIndex extends React.Component {
     componentDidMount() {
         this.props.fetchQuestions()
     }
+
+    componentWillUnmount() {
+        this.props.clearSearch()
+    }
     
     render() { 
         return ( 

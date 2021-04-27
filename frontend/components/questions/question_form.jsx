@@ -32,32 +32,31 @@ class QuestionForm extends React.Component {
                 <br/>
                 <br/>
 
-                <form onSubmit={this.handleSubmit}>
-                <label>
-                    Title
-                    <input
-                    type='text'
-                    value={this.state.title}
-                    onChange={this.update('title')}
-                    />
-                </label>
-                <br/>
-                <br/>
-                <label>
-                    Body
-                    <textarea
-                    value={this.state.body}
-                    onChange={this.update('body')}
-                    />
-                </label>
-                <br/>
-                <br/>
-                
-                <button className="question-form__btn" type='submit' value={this.props.formType} >
-                    Ask A Question
-                </button>
-                </form>
-                <Link className="primary" to="/questions">All questions</Link>
+                <div className="login__form" style={{"margin":"auto"}}>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                        Title
+                        <input
+                            type='text'
+                            value={this.state.title}
+                            onChange={this.update('title')}
+                        />
+                        </label>
+                        <label>
+                        Body
+                        <input
+                            type='text'
+                            value={this.state.body}
+                            onChange={this.update('body')}
+                        />
+                        </label>
+                        <div className="button-area" style={{width: '100%'}}>
+                            <button className="login__form__btn" type='submit' value={this.props.formType}>Ask A Question</button>
+                        </div>
+                    </form>
+                    <Link className="primary" to="/questions" style={{"margin-left": "100px"}}>All questions</Link>
+                </div>
+
             </div>
         )
   }

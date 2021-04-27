@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import questionIndex from './question_index'
-import { fetchQuestions } from '../../actions/questions_actions'
+import { fetchQuestions, receiveSearch } from '../../actions/questions_actions'
 import { deleteQuestion } from '../../actions/questions_actions'
 
 const mapStateToProps = (state) => {
@@ -19,7 +19,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
     fetchQuestions: () => dispatch(fetchQuestions()),
-    deleteQuestion: questionId => dispatch(deleteQuestion(questionId))
+    deleteQuestion: questionId => dispatch(deleteQuestion(questionId)),
+    clearSearch: () => dispatch(receiveSearch(""))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(questionIndex)
