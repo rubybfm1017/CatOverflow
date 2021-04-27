@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux'; 
 import { signout } from '../../actions/user_actions';
+import { receiveSearch } from '../../actions/questions_actions';
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -11,11 +12,17 @@ class Navbar extends React.Component {
         this.state = {
             search: ''
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     updateSearch(e) {
         this.setState({ search: e.target.value.substr(0, 50) });
     }
+
+    handleSubmit(e) {
+		e.preventDefault();
+		this.props.setSearchTerm(this.state.search);
+	}
     
     render() {
         return (
@@ -27,14 +34,14 @@ class Navbar extends React.Component {
                             </span>
                         </Link>
                     </div>
-                    <div className="nav__searchbar">
+                    <form className="nav__searchbar" onSubmit={this.handleSubmit}>
                         <input className="nav__searchbar__container__input" 
                         type="text" 
                         placeholder="Search..."
                         value={this.state.search} 
                         onChange={this.updateSearch}>
                         </input>
-                    </div>
+                    </form>
                     {!this.props.signedIn ? (
                             <div className="nav__right" style={{display: 'flex', marginInline: '50px' }}>
                                 <div className="nav__right__loginbtn">
@@ -67,7 +74,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        signout: () => dispatch(signout())
+        signout: () => dispatch(signout()),
+        setSearchTerm: (term) => dispatch(receiveSearch(term))
     };
 };
 

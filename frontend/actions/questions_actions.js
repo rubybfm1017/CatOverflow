@@ -3,7 +3,7 @@ import * as questions_util from '../util/questions_util'
 export const RECEIVE_ALL_QUESTIONS = 'RECEIVE_ALL_QUESTIONS'
 export const RECEIVE_QUESTION = 'RECEIVE_QUESTION'
 export const REMOVE_QUESTION = 'REMOVE_QUESTION'
-
+export const RECEIVE_SEARCH = 'RECEIVE_SEARCH'
 
 export const receiveAllQuestions = questions => ({
     type:RECEIVE_ALL_QUESTIONS,
@@ -18,6 +18,11 @@ export const receiveQuestion = question => ({
 export const removeQuestion = questionId => ({
   type:REMOVE_QUESTION,
   questionId
+})
+
+export const receiveSearch = term => ({
+  type:RECEIVE_SEARCH,
+  term
 })
 
 export const fetchQuestions = () => dispatch => {

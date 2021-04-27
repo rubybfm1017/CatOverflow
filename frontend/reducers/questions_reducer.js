@@ -1,6 +1,7 @@
 import { RECEIVE_ALL_QUESTIONS,
          RECEIVE_QUESTION,
-         REMOVE_QUESTION
+         REMOVE_QUESTION, 
+         RECEIVE_SEARCH
 } from '../actions/questions_actions';
 
 import {
@@ -35,6 +36,10 @@ const QuestionsReducer = (oldState = {}, action) => {
             let nextState = Object.assign({}, oldState);
             delete nextState[action.questionId]
             return nextState
+
+        case RECEIVE_SEARCH:
+            return Object.assign({}, oldState, { searchTerm: action.term })
+
         default:
             return oldState
     }
