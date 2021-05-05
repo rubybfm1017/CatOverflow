@@ -24,7 +24,7 @@ class questionIndex extends React.Component {
                 <NavbarContainer />
                 <br/>
                 <div id="questions-list" className="questions-index__info">
-                    {this.props.questions.map((question) => (
+                    {this.props.questions.reverse().map((question) => (
                         <QuestionIndexItem
                             question={question}
                             key={question.id}
