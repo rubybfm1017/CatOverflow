@@ -30,6 +30,7 @@ class questionIndex extends React.Component {
                             key={question.id}
                         />
                     ))}
+                    <Link to="/">Back to Home</Link>
                 </div>
                 <div id="question-list-nav">
                     <Link to="/questions/ask">
@@ -38,6 +39,7 @@ class questionIndex extends React.Component {
                         </button>
                     </Link>
                 </div>
+                
             </div>
          );
     }

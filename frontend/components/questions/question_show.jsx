@@ -28,7 +28,7 @@ class QuestionShow extends React.Component {
             < AnswerIndexContainer answers={question.answers} questionId={question.id}/>
             < AnswerFormContainer questionId={question.id}/>
           </div>
-          <Link to="/" />
+          <Link to="/questions">Back to Questions</Link>
         </div>
       </div>
     );
