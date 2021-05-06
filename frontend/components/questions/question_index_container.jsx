@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
     questions = questions.filter(question => question && question.title)
 
     if (questions && searchTerm) {
-        questions = questions.filter(question.title.includes(searchTerm))
+        questions = questions.filter(question => question.title.includes(searchTerm))
     }
 
     return {
