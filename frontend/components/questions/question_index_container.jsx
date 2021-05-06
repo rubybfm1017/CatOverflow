@@ -7,8 +7,10 @@ const mapStateToProps = (state) => {
     let questions = Object.values(state.questions)
     let searchTerm = state.search.term
 
+    questions = questions.filter(question => question && question.title)
+
     if (questions && searchTerm) {
-        questions = questions.filter(question => question.title && question.title.includes(searchTerm))
+        questions = questions.filter(question.title.includes(searchTerm))
     }
 
     return {

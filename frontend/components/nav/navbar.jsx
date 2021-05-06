@@ -31,7 +31,7 @@ class Navbar extends React.Component {
                 <div className="nav">
                     <div className="nav__left">
                         <Link to="/" id="site-header-link">
-						<img id="logo" src="/images/logo.png" />
+                            CatOverflow
 					    </Link>
                     </div>
                     <form className="nav__searchbar" onSubmit={this.handleSubmit}>
