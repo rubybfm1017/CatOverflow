@@ -30,10 +30,9 @@ class Navbar extends React.Component {
             <header className="nav-container">
                 <div className="nav">
                     <div className="nav__left">
-                        <Link to="/">
-                            <span className="logo" href="#">
-                            </span>
-                        </Link>
+                        <Link to="/" id="site-header-link">
+						<img id="logo" src="/images/logo.png" />
+					    </Link>
                     </div>
                     <form className="nav__searchbar" onSubmit={this.handleSubmit}>
                         <input className="nav__searchbar__container__input" 
